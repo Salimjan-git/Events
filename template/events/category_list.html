@@ -1,0 +1,21 @@
+<!-- templates/events/category_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Categories - EventHub{% endblock %}
+
+{% block content %}
+<h1 style="color: #2d3748; margin-bottom: 30px;">Event Categories</h1>
+
+<div class="grid">
+    {% for category in categories %}
+    <div class="card" style="text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);">
+        <h3 style="color: #2d3748;">{{ category.name }}</h3>
+        <p style="color: #718096; margin-top: 10px;">Events in this category</p>
+    </div>
+    {% empty %}
+    <div class="card" style="text-align: center; padding: 50px;">
+        <h3 style="color: #718096;">No categories available</h3>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

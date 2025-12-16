@@ -20,3 +20,13 @@ class Profile(models.Model):
     phone = models.CharField(max_length=20)
     
     
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    date = models.DateTimeField()
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    participants = models.ManyToManyField(Profile, blank=True)
+
+    def __str__(self):
+        return self.title
